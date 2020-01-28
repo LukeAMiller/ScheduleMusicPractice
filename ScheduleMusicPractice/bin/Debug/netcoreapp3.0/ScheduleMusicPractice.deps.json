@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.0": {
       "ScheduleMusicPractice/1.0.0": {
         "dependencies": {
+          "DHTMLX.Scheduler.NET": "4.0.2",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.0.0",
           "Microsoft.AspNetCore.Identity.UI": "3.0.0",
@@ -320,6 +321,17 @@
         },
         "compile": {
           "ScheduleMusicPractice.dll": {}
+        }
+      },
+      "DHTMLX.Scheduler.NET/4.0.2": {
+        "runtime": {
+          "lib/DHTMLX.dll": {
+            "assemblyVersion": "4.0.7282.34360",
+            "fileVersion": "4.0.0.2"
+          }
+        },
+        "compile": {
+          "lib/DHTMLX.dll": {}
         }
       },
       "Microsoft.AspNetCore.Cryptography.Internal/3.0.0": {},
@@ -3973,6 +3985,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "DHTMLX.Scheduler.NET/4.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Z/cIyPH740InWJkt2YdWFc4LOrqcsw9zyqbIk9URIZi4o49rnn540ai7ep8PmJ/8wEjJdBW6MwXwxR9ttjI6gg==",
+      "path": "dhtmlx.scheduler.net/4.0.2",
+      "hashPath": "dhtmlx.scheduler.net.4.0.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/3.0.0": {
       "type": "package",

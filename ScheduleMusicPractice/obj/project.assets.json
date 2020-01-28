@@ -2,6 +2,56 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.0": {
+      "DHTMLX.Scheduler.NET/4.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/DHTMLX.dll": {}
+        },
+        "runtime": {
+          "lib/DHTMLX.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Mvc/5.2.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "[3.2.7, 3.3.0)",
+          "Microsoft.AspNet.WebPages": "[3.2.7, 3.3.0)"
+        },
+        "compile": {
+          "lib/net45/System.Web.Mvc.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Mvc.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Razor/3.2.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/System.Web.Razor.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Razor.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages/3.2.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "[3.2.7, 3.3.0)",
+          "Microsoft.Web.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/System.Web.Helpers.dll": {},
+          "lib/net45/System.Web.WebPages.Deployment.dll": {},
+          "lib/net45/System.Web.WebPages.Razor.dll": {},
+          "lib/net45/System.Web.WebPages.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Helpers.dll": {},
+          "lib/net45/System.Web.WebPages.Deployment.dll": {},
+          "lib/net45/System.Web.WebPages.Razor.dll": {},
+          "lib/net45/System.Web.WebPages.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/3.0.0": {
         "type": "package",
         "compile": {
@@ -890,6 +940,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {}
+        }
+      },
+      "Microsoft.Web.Infrastructure/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
         }
       },
       "Microsoft.Win32.Primitives/4.3.0": {
@@ -2804,6 +2863,281 @@
     }
   },
   "libraries": {
+    "DHTMLX.Scheduler.NET/4.0.2": {
+      "sha512": "Z/cIyPH740InWJkt2YdWFc4LOrqcsw9zyqbIk9URIZi4o49rnn540ai7ep8PmJ/8wEjJdBW6MwXwxR9ttjI6gg==",
+      "type": "package",
+      "path": "dhtmlx.scheduler.net/4.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/dhtmlxScheduler/dhtmlxscheduler.css",
+        "Content/Scripts/dhtmlxScheduler/dhtmlxscheduler.js",
+        "Content/Scripts/dhtmlxScheduler/dhtmlxscheduler_contrast_black.css",
+        "Content/Scripts/dhtmlxScheduler/dhtmlxscheduler_contrast_white.css",
+        "Content/Scripts/dhtmlxScheduler/dhtmlxscheduler_custom_lightbox.js",
+        "Content/Scripts/dhtmlxScheduler/dhtmlxscheduler_flat.css",
+        "Content/Scripts/dhtmlxScheduler/dhtmlxscheduler_material.css",
+        "Content/Scripts/dhtmlxScheduler/dhtmlxscheduler_terrace.css",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_active_links.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_agenda_view.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_all_timed.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_collision.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_container_autoresize.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_cookie.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_csp.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_daytimeline.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_drag_between.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_editors.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_expand.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_grid_view.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_html_templates.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_key_nav.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_layer.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_limit.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_live_updates.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_map_view.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_minical.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_monthheight.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_multisection.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_multiselect.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_multisource.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_mvc.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_offline.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_outerdrag.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_pdf.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_quick_info.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_readonly.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_recurring.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_serialize.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_timeline.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_tooltip.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_treetimeline.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_units.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_url.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_week_agenda.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_wp.js",
+        "Content/Scripts/dhtmlxScheduler/ext/dhtmlxscheduler_year_view.js",
+        "Content/Scripts/dhtmlxScheduler/imgs/but_repeat.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs/buttons.png",
+        "Content/Scripts/dhtmlxScheduler/imgs/calendar.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs/clock_big.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs/clock_small.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs/collapse_expand_icon.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs/controls.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs/databg.png",
+        "Content/Scripts/dhtmlxScheduler/imgs/databg_now.png",
+        "Content/Scripts/dhtmlxScheduler/imgs/export_ical.png",
+        "Content/Scripts/dhtmlxScheduler/imgs/export_pdf.png",
+        "Content/Scripts/dhtmlxScheduler/imgs/icon.png",
+        "Content/Scripts/dhtmlxScheduler/imgs/images.png",
+        "Content/Scripts/dhtmlxScheduler/imgs/loading.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs/resize_dots.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/arrow_left.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/arrow_right.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/but_repeat.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/calendar.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/clock_big.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/clock_small.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/close_icon.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/collapse_expand_icon.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/controls.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/databg.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/databg_now.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/export_ical.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/export_pdf.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/resize_dots.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_black/resizing.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/arrow_left.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/arrow_right.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/but_repeat.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/calendar.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/clock_big.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/clock_small.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/close_icon.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/collapse_expand_icon.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/controls.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/databg.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/export_ical.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/export_pdf.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/quick_info_edit.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/resize_dots.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_contrast_white/resizing.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/Shape.svg",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/agenda-calendar-hov.svg",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/agenda-calendar.svg",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/agenda_bg.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/arrow_left.svg",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/arrow_left_hov.svg",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/arrow_right.svg",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/arrow_right_hov.svg",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/but_repeat.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/calendar.svg",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/clock_big.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/clock_small.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/close_icon.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/collapse_expand_icon.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/controls.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/databg.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/drag-horizontal.svg",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/drag-vertical.svg",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/export_ical.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/export_pdf.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/icon.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/menu-down.svg",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/resizing.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/time.svg",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_material/tree_arrow.svg",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/arrow_left.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/arrow_right.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/but_repeat.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/calendar.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/clock_big.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/clock_small.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/close_icon.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/collapse_expand_icon.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/controls.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/databg.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/databg_now.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/export_ical.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/export_pdf.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/resize_dots.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_dhx_terrace/resizing.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/agenda_bg.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/arrow_left.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/arrow_right.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/but_repeat.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/calendar.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/clock.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/clock_big.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/clock_small.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/close_icon.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/collapse_expand_icon.gif",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/controls.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/databg.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/databg_now.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/export_ical.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/export_pdf.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/resize_dots.png",
+        "Content/Scripts/dhtmlxScheduler/imgs_flat/resizing.png",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_ar.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_be.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_ca.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_cn.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_cs.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_da.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_de.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_el.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_en.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_es.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_fi.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_fr.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_he.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_hu.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_id.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_it.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_jp.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_nb.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_nl.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_no.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_pl.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_pt.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_ro.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_ru.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_si.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_sk.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_sv.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_tr.js",
+        "Content/Scripts/dhtmlxScheduler/locale/locale_ua.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_be.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_cn.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_cs.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_da.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_de.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_el.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_en.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_es.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_fi.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_fr.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_he.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_it.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_nb.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_nl.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_pl.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_pt.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_ro.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_ru.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_sk.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_sv.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/locale_recurring_ua.js",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/repeat_template_be.html",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/repeat_template_cn.html",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/repeat_template_de.html",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/repeat_template_el.html",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/repeat_template_en.html",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/repeat_template_es.html",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/repeat_template_fr.html",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/repeat_template_he.html",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/repeat_template_it.html",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/repeat_template_nl.html",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/repeat_template_ro.html",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/repeat_template_ru.html",
+        "Content/Scripts/dhtmlxScheduler/locale/recurring/repeat_template_sk.html",
+        "dhtmlx.scheduler.net.4.0.2.nupkg.sha512",
+        "dhtmlx.scheduler.net.nuspec",
+        "lib/DHTMLX.dll",
+        "lib/DHTMLX.pdb",
+        "lib/DHTMLX.xml"
+      ]
+    },
+    "Microsoft.AspNet.Mvc/5.2.7": {
+      "sha512": "m3hUsn48k6Qb5El9A8naTwGTLCdSQKGSpGweqIfiVKltGJzAJJxuXvhhaQQtLCGg3i5V88iGjz0JG72/tlFKlg==",
+      "type": "package",
+      "path": "microsoft.aspnet.mvc/5.2.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Web.config.install.xdt",
+        "Content/Web.config.uninstall.xdt",
+        "lib/net45/System.Web.Mvc.dll",
+        "lib/net45/System.Web.Mvc.xml",
+        "microsoft.aspnet.mvc.5.2.7.nupkg.sha512",
+        "microsoft.aspnet.mvc.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.Razor/3.2.7": {
+      "sha512": "BpWEZ+Ys7g9VAkbAfpG5jr5A1fKcmadCCXv3fYfps5YfTVABJIGV4uc9yvmXKxsNsjL+BzDld2gs+xtgT2gg1g==",
+      "type": "package",
+      "path": "microsoft.aspnet.razor/3.2.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/System.Web.Razor.dll",
+        "lib/net45/System.Web.Razor.xml",
+        "microsoft.aspnet.razor.3.2.7.nupkg.sha512",
+        "microsoft.aspnet.razor.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebPages/3.2.7": {
+      "sha512": "2jwZFB7PvY+tbdz0ZP4iEo7gMrJxkCQUzoGLh6swUc6ZXl6DoKyDslmGcC/j9PFmJXCRMVIqtRorlPSMU2DuRA==",
+      "type": "package",
+      "path": "microsoft.aspnet.webpages/3.2.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Web.config.install.xdt",
+        "Content/Web.config.uninstall.xdt",
+        "lib/net45/System.Web.Helpers.dll",
+        "lib/net45/System.Web.Helpers.xml",
+        "lib/net45/System.Web.WebPages.Deployment.dll",
+        "lib/net45/System.Web.WebPages.Deployment.xml",
+        "lib/net45/System.Web.WebPages.Razor.dll",
+        "lib/net45/System.Web.WebPages.Razor.xml",
+        "lib/net45/System.Web.WebPages.dll",
+        "lib/net45/System.Web.WebPages.xml",
+        "microsoft.aspnet.webpages.3.2.7.nupkg.sha512",
+        "microsoft.aspnet.webpages.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/3.0.0": {
       "sha512": "+rv53zsuvSYKFfW0LLswxHEXtu3fruU00AHcs1khYvnZAYi68Bdq6Ud/ukpnZsG0UjRJiz3KrfF4Rgvuogj48Q==",
       "type": "package",
@@ -4171,6 +4505,18 @@
         "lib/netstandard2.0/bootstrap4_identitygeneratorfilesconfig.json",
         "microsoft.visualstudio.web.codegenerators.mvc.3.0.0.nupkg.sha512",
         "microsoft.visualstudio.web.codegenerators.mvc.nuspec"
+      ]
+    },
+    "Microsoft.Web.Infrastructure/1.0.0": {
+      "sha512": "FNmvLn5m2LTU/Rs2KWVo0SIIh9Ek+U0ojex7xeDaSHw/zgEP77A8vY5cVWgUtBGS8MJfDGNn8rpXJWEIQaPwTg==",
+      "type": "package",
+      "path": "microsoft.web.infrastructure/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Microsoft.Web.Infrastructure.dll",
+        "microsoft.web.infrastructure.1.0.0.nupkg.sha512",
+        "microsoft.web.infrastructure.nuspec"
       ]
     },
     "Microsoft.Win32.Primitives/4.3.0": {
@@ -8801,6 +9147,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
+      "DHTMLX.Scheduler.NET >= 4.0.2",
+      "Microsoft.AspNet.Mvc >= 5.2.7",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.0.0",
       "Microsoft.AspNetCore.Identity.UI >= 3.0.0",
@@ -8848,6 +9196,14 @@
     "frameworks": {
       "netcoreapp3.0": {
         "dependencies": {
+          "DHTMLX.Scheduler.NET": {
+            "target": "Package",
+            "version": "[4.0.2, )"
+          },
+          "Microsoft.AspNet.Mvc": {
+            "target": "Package",
+            "version": "[5.2.7, )"
+          },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
             "version": "[3.0.0, )"
@@ -8912,5 +9268,57 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'DHTMLX.Scheduler.NET 4.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.0'. This package may not be fully compatible with your project.",
+      "libraryId": "DHTMLX.Scheduler.NET",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.Mvc 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.Mvc",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.Razor 3.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.Razor",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebPages 3.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebPages",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Web.Infrastructure 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Web.Infrastructure",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.0"
+      ]
+    }
+  ]
 }

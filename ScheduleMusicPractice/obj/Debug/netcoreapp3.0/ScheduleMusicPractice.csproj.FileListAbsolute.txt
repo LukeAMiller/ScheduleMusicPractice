@@ -156,8 +156,6 @@ C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicP
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\bin\Debug\netcoreapp3.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\bin\Debug\netcoreapp3.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\bin\Debug\netcoreapp3.0\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\ScheduleMusicPractice.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\ScheduleMusicPractice.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\PracticeSessions\Create.cshtml.g.cs
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\PracticeSessions\Delete.cshtml.g.cs
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\PracticeSessions\Details.cshtml.g.cs
@@ -168,3 +166,9 @@ C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicP
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\Instruments\Details.cshtml.g.cs
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\Instruments\Edit.cshtml.g.cs
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\Instruments\Index.cshtml.g.cs
+C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\bin\Debug\netcoreapp3.0\DHTMLX.dll
+C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\Events\Create.cshtml.g.cs
+C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\Events\Delete.cshtml.g.cs
+C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\Events\Details.cshtml.g.cs
+C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\Events\Edit.cshtml.g.cs
+C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\Events\Index.cshtml.g.cs
