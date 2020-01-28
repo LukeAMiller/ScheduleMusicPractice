@@ -137,7 +137,6 @@ UserId = "00000000-ffff-ffff-ffff-ffffffffffff"
 
                   });
                 }
-        public DbSet<ScheduleMusicPractice.Models.Event> Event { get; set; }
 
     }
 }
