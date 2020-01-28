@@ -6,7 +6,10 @@ a.navbar-brand {
   text-align: center;
   word-break: break-all;
 }
-
+.darkmode {
+    background-color: black;
+    color: white;
+}
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
@@ -59,7 +62,12 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
+  
+    padding: 25px;
+    background-color: white;
+    color: black;
+    font-size: 25px;
+
   margin-bottom: 60px;
 }
 .footer {
