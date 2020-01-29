@@ -4,11 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
+
 <table class="table">
     <thead>
         <tr>
@@ -16,7 +14,7 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LearningMaterials)
+             Learning Materials
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
@@ -32,7 +30,11 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LearningMaterials)
+                <a href="@ViewData.Model"  target="_blank">
+                  
+                    @Html.DisplayFor(modelItem => item.LearningMaterials)
+
+                </a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)

@@ -4,9 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>PracticeSession</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,17 +12,17 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
-                <label asp-for="@Model.practiceSession.dateTime" class="control-label"></label>
+                <label asp-for="@Model.practiceSession.dateTime" class="control-label">Choose a day and time that works for you!</label>
                 <input asp-for="@Model.practiceSession.dateTime" class="form-control" />
                 <span asp-validation-for="@Model.practiceSession.dateTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label"></label>
+                <label class="control-label">How do you like to practice?</label>
                 <select asp-for="@Model.practiceSession.PracticeMethodId" class="form-control" asp-items="@Model.ListOfPracticeMethods"></select>
                 <span asp-validation-for="@Model.practiceSession.PracticeMethodId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label"></label>
+                <label class="control-label">What will you be using?</label>
                 <select asp-for="@Model.practiceSession.InstrumentId" class="form-control" asp-items="@Model.ListOfInstruments"></select>
                 <span asp-validation-for="@Model.practiceSession.InstrumentId" class="text-danger"></span>
             </div>
@@ -36,7 +34,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to your schedule</a>
 </div>
 
 @section Scripts {

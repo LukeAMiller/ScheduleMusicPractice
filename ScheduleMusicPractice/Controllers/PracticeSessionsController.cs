@@ -27,7 +27,8 @@ namespace ScheduleMusicPractice.Controllers
         public async Task<IActionResult> Index()
         {
             var user = await GetCurrentUserAsync();
-            var applicationDbContext = _context.PracticeSession.Include(p => p.Instrument).Include(p => p.PracticeMethod).Include(p => p.user).Where(p=> p.UserId == user.Id);
+            var applicationDbContext = _context.PracticeSession.Include(p => p.Instrument).Include(p => p.PracticeMethod).Include(p => p.user).Where(p=> p.UserId == user.Id).OrderBy(item => item.dateTime);
+            
             return View(await applicationDbContext.ToListAsync());
         }
 

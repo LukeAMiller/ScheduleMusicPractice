@@ -7,7 +7,7 @@ a.navbar-brand {
   word-break: break-all;
 }
 .darkmode {
-    background-color: black;
+    background-color: black !important;
     color: white;
 }
 /* Provide sufficient contrast against white background */
@@ -62,12 +62,6 @@ html {
 }
 
 body {
-  
-    padding: 25px;
-    background-color: white;
-    color: black;
-    font-size: 25px;
-
   margin-bottom: 60px;
 }
 .footer {

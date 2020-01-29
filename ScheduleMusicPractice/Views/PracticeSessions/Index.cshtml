@@ -4,35 +4,32 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>My Schedule</h1>
 
-<p>
-    <a asp-action="Create">Schedule A New Session</a>
-</p>
 <table class="table">
     <thead>
         <tr>
+       
             <th>
-                @Html.DisplayNameFor(model => model.user)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.dateTime)
+               Date and Time
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Instrument)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PracticeMethod)
+                Practice Method
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model
+    )
+{
+   
+    
+    if (item.dateTime  !> DateTime.Now)
+    {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.user.FullName)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.dateTime)
             </td>
@@ -48,6 +45,7 @@
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
+    }
 }
     </tbody>
 </table>

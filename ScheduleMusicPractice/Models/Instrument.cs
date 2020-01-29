@@ -11,6 +11,15 @@ namespace ScheduleMusicPractice.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public bool DisplayLink(string url)
+        {
+            if ((url != null) && (url.Length > 0))
+                return true;
+
+            return false;
+        }
+        [DataType(DataType.Url)]
+        [UIHint("OpenInNewWindow")]
         public string LearningMaterials { get; set; }
         public string Description { get; set; }
       
