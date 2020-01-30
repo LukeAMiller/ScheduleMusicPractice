@@ -14,6 +14,7 @@ namespace ScheduleMusicPractice.Data
             : base(options)
         {
         }
+        public DbSet<LearningMaterial> LearningMaterial { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Instrument> Instrument { get; set; }
         public DbSet<PracticeSession> PracticeSession { get; set; }
@@ -38,7 +39,25 @@ namespace ScheduleMusicPractice.Data
             var passwordHash = new PasswordHasher<User>();
             user.PasswordHash = passwordHash.HashPassword(user, "Admin8*");
             modelBuilder.Entity<User>().HasData(user);
-
+            modelBuilder.Entity<LearningMaterial>().HasData(
+             new LearningMaterial()
+             {
+                 id = 1,
+                 Name = "http://www.flowkey.com",
+                 InstrumentId = 1
+             },
+               new LearningMaterial()
+               {
+                   id = 2,
+                   Name = "http://www.simplypiano.com",
+                   InstrumentId = 1
+               },
+                 new LearningMaterial()
+                 {
+                     id = 3,
+                     Name = "http://www.yousician.com",
+                     InstrumentId = 2
+                 });
             modelBuilder.Entity<Instrument>().HasData(
             new Instrument()
             {

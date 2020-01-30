@@ -49,6 +49,7 @@ namespace ScheduleMusicPractice.Controllers
         public IActionResult Create()
         {
             createAndEditAnInstrument vm = new createAndEditAnInstrument();
+
             vm.instrument = new Instrument();
             return View(vm);
         }
