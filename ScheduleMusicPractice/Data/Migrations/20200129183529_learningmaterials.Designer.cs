@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ScheduleMusicPractice.Data;
 
 namespace ScheduleMusicPractice.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200129183529_learningmaterials")]
+    partial class learningmaterials
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -236,19 +238,19 @@ namespace ScheduleMusicPractice.Data.Migrations
                         {
                             id = 1,
                             InstrumentId = 1,
-                            Name = "http://www.flowkey.com"
+                            Name = "www.flowkey.com"
                         },
                         new
                         {
                             id = 2,
                             InstrumentId = 1,
-                            Name = "http://www.simplypiano.com"
+                            Name = "www.simplypiano.com"
                         },
                         new
                         {
                             id = 3,
                             InstrumentId = 2,
-                            Name = "http://www.yousician.com"
+                            Name = "www.yousician.com"
                         });
                 });
 
@@ -335,7 +337,7 @@ namespace ScheduleMusicPractice.Data.Migrations
                             InstrumentId = 1,
                             PracticeMethodId = 1,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            dateTime = new DateTime(2020, 1, 29, 14, 36, 45, 365, DateTimeKind.Local).AddTicks(8847)
+                            dateTime = new DateTime(2020, 1, 29, 13, 35, 28, 658, DateTimeKind.Local).AddTicks(7647)
                         },
                         new
                         {
@@ -343,7 +345,7 @@ namespace ScheduleMusicPractice.Data.Migrations
                             InstrumentId = 2,
                             PracticeMethodId = 2,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            dateTime = new DateTime(2020, 1, 29, 14, 36, 45, 371, DateTimeKind.Local).AddTicks(1102)
+                            dateTime = new DateTime(2020, 1, 29, 13, 35, 28, 662, DateTimeKind.Local).AddTicks(924)
                         },
                         new
                         {
@@ -351,7 +353,7 @@ namespace ScheduleMusicPractice.Data.Migrations
                             InstrumentId = 3,
                             PracticeMethodId = 3,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            dateTime = new DateTime(2020, 1, 29, 14, 36, 45, 371, DateTimeKind.Local).AddTicks(1209)
+                            dateTime = new DateTime(2020, 1, 29, 13, 35, 28, 662, DateTimeKind.Local).AddTicks(990)
                         });
                 });
 
@@ -428,14 +430,14 @@ namespace ScheduleMusicPractice.Data.Migrations
                         {
                             Id = "00000000-ffff-ffff-ffff-ffffffffffff",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "29322460-111d-41a7-8dd6-b34fcab2eda4",
+                            ConcurrencyStamp = "dfbbb45e-13a3-4256-ade1-59f190cea4d0",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             FullName = "admin",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIaXirxtync5Kb9xhc9yfWqeHiLR+sMTwpQm/srBJYqPr4Fa88ww4VtLkFdeF+QYRg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEB5OM0syzVqvkRjOiawnpE+1/M65AFkzINy3uM1eud82NTXKtofe0EtS1d/vogBBcw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "7f434309-a4d9-48e9-9ebb-8803db794577",
                             TwoFactorEnabled = false,
