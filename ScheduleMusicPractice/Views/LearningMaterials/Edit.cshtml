@@ -13,7 +13,7 @@
             <input type="hidden" asp-for="learningMaterial.id" />
 
             <div class="form-group">
-                <label asp-for="learningMaterial.InstrumentId" class="control-label"></label>
+                <label asp-for="learningMaterial.InstrumentId" class="control-label">Choose Your Instrument</label>
                 <select asp-for="learningMaterial.InstrumentId" class="form-control" asp-items="@Model.instruments"></select>
                 <span asp-validation-for="learningMaterial.InstrumentId" class="text-danger"></span>
             </div>
