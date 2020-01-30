@@ -28,26 +28,23 @@
                                         onclick="location.href='@Url.Action("Create", "PracticeSessions")'">
                                     Schedule a Practice Session
                                 </button>
-                            </li>
-}
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="LearningMaterials" asp-action="Index">LearningMaterials</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Instruments" asp-action="Index">Instruments</a>
-                        </li>
-                        @if (SignInManager.IsSignedIn(User))
-                        {
+                            </li>}
 
                             <li class="nav-item">
-                                <button class="btn btn-info" type="button"
-                                        onclick="location.href='@Url.Action("Index", "PracticeSessions")'">
-                                    My Schedule
-                                </button>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Instruments" asp-action="Index">Instruments</a>
                             </li>
-                        }
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                
+                                <li class="nav-item">
+                                    <button class="btn btn-info" type="button"
+                                            onclick="location.href='@Url.Action("Index", "PracticeSessions")'">
+                                        My Schedule
+                                    </button>
+                                </li>
+                            }
 
-                    </ul>
+                        </ul>
                 </div>
             </div>
         </nav>

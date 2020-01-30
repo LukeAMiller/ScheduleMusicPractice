@@ -164,6 +164,9 @@ namespace ScheduleMusicPractice.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("LearningMaterials")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -209,46 +212,6 @@ namespace ScheduleMusicPractice.Data.Migrations
                         {
                             Id = 7,
                             Name = "Vocals"
-                        });
-                });
-
-            modelBuilder.Entity("ScheduleMusicPractice.Models.LearningMaterial", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("InstrumentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("InstrumentId");
-
-                    b.ToTable("LearningMaterial");
-
-                    b.HasData(
-                        new
-                        {
-                            id = 1,
-                            InstrumentId = 1,
-                            Name = "http://www.flowkey.com"
-                        },
-                        new
-                        {
-                            id = 2,
-                            InstrumentId = 1,
-                            Name = "http://www.simplypiano.com"
-                        },
-                        new
-                        {
-                            id = 3,
-                            InstrumentId = 2,
-                            Name = "http://www.yousician.com"
                         });
                 });
 
@@ -335,7 +298,7 @@ namespace ScheduleMusicPractice.Data.Migrations
                             InstrumentId = 1,
                             PracticeMethodId = 1,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            dateTime = new DateTime(2020, 1, 29, 14, 36, 45, 365, DateTimeKind.Local).AddTicks(8847)
+                            dateTime = new DateTime(2020, 1, 24, 14, 21, 55, 536, DateTimeKind.Local).AddTicks(8667)
                         },
                         new
                         {
@@ -343,7 +306,7 @@ namespace ScheduleMusicPractice.Data.Migrations
                             InstrumentId = 2,
                             PracticeMethodId = 2,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            dateTime = new DateTime(2020, 1, 29, 14, 36, 45, 371, DateTimeKind.Local).AddTicks(1102)
+                            dateTime = new DateTime(2020, 1, 24, 14, 21, 55, 540, DateTimeKind.Local).AddTicks(4981)
                         },
                         new
                         {
@@ -351,7 +314,7 @@ namespace ScheduleMusicPractice.Data.Migrations
                             InstrumentId = 3,
                             PracticeMethodId = 3,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            dateTime = new DateTime(2020, 1, 29, 14, 36, 45, 371, DateTimeKind.Local).AddTicks(1209)
+                            dateTime = new DateTime(2020, 1, 24, 14, 21, 55, 540, DateTimeKind.Local).AddTicks(5055)
                         });
                 });
 
@@ -428,14 +391,14 @@ namespace ScheduleMusicPractice.Data.Migrations
                         {
                             Id = "00000000-ffff-ffff-ffff-ffffffffffff",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "29322460-111d-41a7-8dd6-b34fcab2eda4",
+                            ConcurrencyStamp = "17cbd856-8539-46a4-a7bd-85acb620639d",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             FullName = "admin",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIaXirxtync5Kb9xhc9yfWqeHiLR+sMTwpQm/srBJYqPr4Fa88ww4VtLkFdeF+QYRg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIuYBvBhfeOa7Ahu5720okqWlNOmQ7rI3jS1Re6Hr5XF2Nl0NHEKA4ZSjdLfI9UACA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "7f434309-a4d9-48e9-9ebb-8803db794577",
                             TwoFactorEnabled = false,
@@ -490,15 +453,6 @@ namespace ScheduleMusicPractice.Data.Migrations
                     b.HasOne("ScheduleMusicPractice.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ScheduleMusicPractice.Models.LearningMaterial", b =>
-                {
-                    b.HasOne("ScheduleMusicPractice.Models.Instrument", "instrument")
-                        .WithMany()
-                        .HasForeignKey("InstrumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
