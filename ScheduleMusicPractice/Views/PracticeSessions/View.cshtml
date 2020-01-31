@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ScheduleMusicPractice.Models.PracticeSession>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.dateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instrument)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PracticeMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.completed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MinutesPracticed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ratethisSession)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    if (item.dateTime! < DateTime.Now)
+    {
+        <tr>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.dateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instrument.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PracticeMethod.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.completed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinutesPracticed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ratethisSession)
+            </td>
+            <td>
+                <a asp-action="ReviewIt" asp-route-id="@item.Id">How was it?</a>
+            </td>
+            
+        </tr>}
+}
+    </tbody>
+</table>

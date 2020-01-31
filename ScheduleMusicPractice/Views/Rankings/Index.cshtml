@@ -1,27 +1,26 @@
-﻿@model IEnumerable<ScheduleMusicPractice.Models.Instrument>
+﻿@model IEnumerable<ScheduleMusicPractice.Models.Ranking>
 
 @{
     ViewData["Title"] = "Index";
 }
 
+<h1>Index</h1>
 
-
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.User)
             </th>
             <th>
-             Learning Materials
+                @Html.DisplayNameFor(model => model.learningMaterial)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.Rating)
             </th>
-           
             <th></th>
         </tr>
     </thead>
@@ -29,10 +28,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.User.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.learningMaterial.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

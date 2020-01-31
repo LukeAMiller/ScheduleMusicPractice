@@ -31,7 +31,13 @@ namespace ScheduleMusicPractice.Controllers
             
             return View(await applicationDbContext.ToListAsync());
         }
+        public async Task<IActionResult> View()
+        {
+            var user = await GetCurrentUserAsync();
+            var applicationDbContext = _context.PracticeSession.Include(p => p.Instrument).Include(p => p.PracticeMethod).Include(p => p.user).Where(p => p.UserId == user.Id).OrderBy(item => item.dateTime);
 
+            return View(await applicationDbContext.ToListAsync());
+        }
         // GET: PracticeSessions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -106,16 +112,34 @@ namespace ScheduleMusicPractice.Controllers
             {
                 return NotFound();
             }
-
+            ScheduleASession vm = new ScheduleASession();
+            vm.ListOfInstruments = _context.Instrument.Select(i => new SelectListItem
+            {
+                Value = i.Id.ToString(),
+                Text = i.Name
+            }).ToList();
+            vm.ListOfPracticeMethods = _context.PracticeMethod.Select(i => new SelectListItem
+            {
+                Value = i.Id.ToString(),
+                Text = i.Name
+            }).ToList();
+            vm.ListOfInstruments.Insert(0, new SelectListItem()
+            {
+                Value = "0",
+                Text = "Please choose an Instrument"
+            });
+            vm.ListOfPracticeMethods.Insert(0, new SelectListItem()
+            {
+                Value = "0",
+                Text = "Please choose your method of Practicing"
+            });
             var practiceSession = await _context.PracticeSession.FindAsync(id);
             if (practiceSession == null)
             {
                 return NotFound();
             }
-            ViewData["InstrumentId"] = new SelectList(_context.Instrument, "Id", "Id", practiceSession.InstrumentId);
-            ViewData["PracticeMethodId"] = new SelectList(_context.PracticeMethod, "Id", "Id", practiceSession.PracticeMethodId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", practiceSession.UserId);
-            return View(practiceSession);
+            vm.practiceSession = practiceSession;
+            return View(vm);
         }
 
         // POST: PracticeSessions/Edit/5
@@ -123,23 +147,25 @@ namespace ScheduleMusicPractice.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,dateTime,InstrumentId,PracticeMethodId")] PracticeSession practiceSession)
+        public async Task<IActionResult> Edit(int id, ScheduleASession vm)
         {
-            if (id != practiceSession.Id)
+            if (id != vm.practiceSession.Id)
             {
                 return NotFound();
             }
-
+            ModelState.Remove("PracticeSession.UserId");
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(practiceSession);
+                    var user = await GetCurrentUserAsync();
+                    vm.practiceSession.UserId = user.Id;
+                    _context.Update(vm.practiceSession);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PracticeSessionExists(practiceSession.Id))
+                    if (!PracticeSessionExists(vm.practiceSession.Id))
                     {
                         return NotFound();
                     }
@@ -150,10 +176,8 @@ namespace ScheduleMusicPractice.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["InstrumentId"] = new SelectList(_context.Instrument, "Id", "Id", practiceSession.InstrumentId);
-            ViewData["PracticeMethodId"] = new SelectList(_context.PracticeMethod, "Id", "Id", practiceSession.PracticeMethodId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", practiceSession.UserId);
-            return View(practiceSession);
+
+            return View(vm);
         }
 
         // GET: PracticeSessions/Delete/5
@@ -191,6 +215,65 @@ namespace ScheduleMusicPractice.Controllers
         private bool PracticeSessionExists(int id)
         {
             return _context.PracticeSession.Any(e => e.Id == id);
+        }
+        public async Task<IActionResult> ReviewIt(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            ScheduleASession vm = new ScheduleASession();
+        
+            var practiceSession = await _context.PracticeSession
+            .Include(p => p.InstrumentId)
+                .Include(p => p.PracticeMethodId)
+                .Include(p => p.user)
+                .FirstOrDefaultAsync(m => m.Id == id);
+         
+            if (practiceSession == null)
+            {
+                return NotFound();
+            }
+          
+            return View(practiceSession);
+        }
+
+        // POST: PracticeSessions/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ReviewIt(int id, PracticeSession session)
+        {
+            if (id != session.Id)
+            {
+                return NotFound();
+            }
+            ModelState.Remove("PracticeSession.UserId");
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var user = await GetCurrentUserAsync();
+                    session.UserId = user.Id;
+                    _context.Update(session);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!PracticeSessionExists(session.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(session);
         }
     }
 }

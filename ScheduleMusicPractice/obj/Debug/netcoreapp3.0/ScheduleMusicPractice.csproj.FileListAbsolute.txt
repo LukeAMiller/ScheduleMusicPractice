@@ -173,3 +173,10 @@ C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicP
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\LearningMaterials\Details.cshtml.g.cs
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\LearningMaterials\Edit.cshtml.g.cs
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\LearningMaterials\Index.cshtml.g.cs
+C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\Rankings\Create.cshtml.g.cs
+C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\Rankings\Delete.cshtml.g.cs
+C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\Rankings\Details.cshtml.g.cs
+C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\Rankings\Edit.cshtml.g.cs
+C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\Rankings\Index.cshtml.g.cs
+C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\PracticeSessions\ReviewIt.cshtml.g.cs
+C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\PracticeSessions\View.cshtml.g.cs

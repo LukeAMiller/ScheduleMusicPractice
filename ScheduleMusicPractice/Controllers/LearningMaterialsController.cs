@@ -23,7 +23,8 @@ namespace ScheduleMusicPractice.Controllers
         // GET: LearningMaterials
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.LearningMaterial.Include(l => l.instrument);
+            var applicationDbContext = _context.LearningMaterial.Include(l => l.instrument).Include(l => l.rankings);
+            
             return View(await applicationDbContext.ToListAsync());
         }
 

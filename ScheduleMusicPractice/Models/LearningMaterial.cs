@@ -16,5 +16,6 @@ namespace ScheduleMusicPractice.Models
         [Range(1, int.MaxValue, ErrorMessage = "Please Select An Instrument")]
         public int InstrumentId { get; set; }
         public Instrument instrument { get; set; }
+        public List<Ranking> rankings { get; set; }
     }
 }

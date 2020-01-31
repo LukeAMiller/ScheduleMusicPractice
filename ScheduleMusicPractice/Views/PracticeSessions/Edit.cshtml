@@ -1,4 +1,4 @@
-﻿@model ScheduleMusicPractice.Models.PracticeSession
+﻿@model ScheduleMusicPractice.Models.ViewModels.ScheduleASession
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,26 +12,22 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="practiceSession.Id" />
+        
             <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
-                <span asp-validation-for="UserId" class="text-danger"></span>
+                <label asp-for="practiceSession.dateTime" class="control-label">Date and Time</label>
+                <input asp-for="practiceSession.dateTime" class="form-control" />
+                <span asp-validation-for="practiceSession.dateTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="dateTime" class="control-label"></label>
-                <input asp-for="dateTime" class="form-control" />
-                <span asp-validation-for="dateTime" class="text-danger"></span>
+                <label asp-for="practiceSession.InstrumentId" class="control-label">Choose your Instrument</label>
+                <select asp-for="practiceSession.InstrumentId" class="form-control" asp-items="@Model.ListOfInstruments"></select>
+                <span asp-validation-for="practiceSession.InstrumentId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="InstrumentId" class="control-label"></label>
-                <select asp-for="InstrumentId" class="form-control" asp-items="ViewBag.InstrumentId"></select>
-                <span asp-validation-for="InstrumentId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PracticeMethodId" class="control-label"></label>
-                <select asp-for="PracticeMethodId" class="form-control" asp-items="ViewBag.PracticeMethodId"></select>
-                <span asp-validation-for="PracticeMethodId" class="text-danger"></span>
+                <label asp-for="practiceSession.PracticeMethodId" class="control-label">Choose Your Method of Practice</label>
+                <select asp-for="practiceSession.PracticeMethodId" class="form-control" asp-items="@Model.ListOfPracticeMethods"></select>
+                <span asp-validation-for="practiceSession.PracticeMethodId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
