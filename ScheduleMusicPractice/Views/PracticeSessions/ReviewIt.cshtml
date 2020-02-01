@@ -13,7 +13,9 @@
         <form asp-action="ReviewIt">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-      
+      <input type="hidden" asp-for=" InstrumentId"/>
+            <input type="hidden" asp-for="dateTime"/>
+            <input type="hidden" asp-for="PracticeMethodId"/>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="completed" /> @Html.DisplayNameFor(model => model.completed)

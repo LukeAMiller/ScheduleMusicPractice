@@ -93,6 +93,7 @@ namespace ScheduleMusicPractice.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ScheduleASession vm)
         {
+            ModelState.Remove("practiceSession.ratethisSession");
             ModelState.Remove("PracticeSession.UserId");
             if (ModelState.IsValid)
             {
@@ -223,13 +224,8 @@ namespace ScheduleMusicPractice.Controllers
                 return NotFound();
             }
             ScheduleASession vm = new ScheduleASession();
-        
-            var practiceSession = await _context.PracticeSession
-            .Include(p => p.InstrumentId)
-                .Include(p => p.PracticeMethodId)
-                .Include(p => p.user)
-                .FirstOrDefaultAsync(m => m.Id == id);
-         
+
+            var practiceSession = await _context.PracticeSession.FindAsync(id);
             if (practiceSession == null)
             {
                 return NotFound();

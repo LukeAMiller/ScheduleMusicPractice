@@ -20,6 +20,7 @@ namespace ScheduleMusicPractice.Models
         [Range(1, int.MaxValue, ErrorMessage = "Please Select A Method of Practicing")]
         public int PracticeMethodId { get; set; }
         public PracticeMethod PracticeMethod { get; set; }
+        
         public bool completed { get; set; }
         public int MinutesPracticed { get; set; }
         [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5")]
