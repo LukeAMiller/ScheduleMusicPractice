@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<ScheduleMusicPractice.Models.LearningMaterial>
+@using Microsoft.AspNetCore.Identity
 
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 @{
     ViewData["Title"] = "Index";
 }
@@ -12,30 +16,70 @@
 <table class="table">
     <thead>
         <tr>
-           
+
             <th>
                 @Html.DisplayNameFor(model => model.instrument)
             </th>
             <th>Learning Link</th>
+            <th>User Ratings 1-5</th>
+            <th>Average Rating</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
-         
+
             <td>
                 @Html.DisplayFor(modelItem => item.instrument.Name)
             </td>
-           
+
             <td>
                 <a href=@item.Name>@item.Name</a>
-              
+
             </td>
+          
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                @foreach (var rank in item.rankings)
+                {
+                    @if (rank.UserId == @UserManager.GetUserAsync(User).Result.Id)
+                    {
+                        @Html.DisplayFor(modelitem => rank.Rating);
+
+                    }
+
+                }
             </td>
+
+            @foreach (var rank in item.rankings)
+            {@if (rank.UserId == @UserManager.GetUserAsync(User).Result.Id)
+                {
+                    <td>@item.Sum()</td>
+                }
+        }
+
+            @if (item.rankings.Any(r => r.UserId == @UserManager.GetUserAsync(User).Result.Id))
+            {
+
+                @foreach (var rank in item.rankings)
+                {@if (rank.UserId == @UserManager.GetUserAsync(User).Result.Id)
+                    {
+                        <td>
+                            <a asp-controller="Rankings" asp-action="Edit" asp-route-id="@rank.Id">Change Your Rating</a>
+                        </td>
+   }
+            }
+
+            }
+            else
+            {<td></td>
+                <td>
+
+                    <a asp-controller="Rankings" asp-action="Create" asp-route-id="@item.id">Rate This Website</a>
+                </td>
+            }
         </tr>
-}
+        }
     </tbody>
 </table>

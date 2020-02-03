@@ -10,6 +10,10 @@
     <Compile Remove="Data\Migrations\20200124190852_seedingdatatake4.Designer.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="Areas\favicon.ico" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />

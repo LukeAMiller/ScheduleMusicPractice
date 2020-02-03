@@ -14,6 +14,7 @@ namespace ScheduleMusicPractice.Data
             : base(options)
         {
         }
+        public DbSet<Ranking> Ranking { get; set; }
         public DbSet<LearningMaterial> LearningMaterial { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Instrument> Instrument { get; set; }

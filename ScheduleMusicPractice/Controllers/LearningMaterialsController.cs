@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,16 +15,18 @@ namespace ScheduleMusicPractice.Controllers
     public class LearningMaterialsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public LearningMaterialsController(ApplicationDbContext context)
+        private UserManager<User> _userManager;
+        public LearningMaterialsController(ApplicationDbContext context, UserManager<User> userManager)
         {
+            _userManager = userManager;
             _context = context;
         }
-
+        private Task<User> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
         // GET: LearningMaterials
         public async Task<IActionResult> Index()
-        {
-            var applicationDbContext = _context.LearningMaterial.Include(l => l.instrument);
+        { var user = await GetCurrentUserAsync();
+          
+            var applicationDbContext = _context.LearningMaterial.Include(l => l.instrument).Include(l => l.rankings);
             return View(await applicationDbContext.ToListAsync());
         }
 
