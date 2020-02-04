@@ -36,26 +36,37 @@ namespace ScheduleMusicPractice.Controllers
             {
                 return NotFound();
             }
-
-            var ranking = await _context.Ranking
+            RankingViewModel vm = new RankingViewModel();
+          
+            vm.rank = await _context.Ranking
                 .Include(r => r.User)
                 .Include(r => r.learningMaterial)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (ranking == null)
+                .FirstOrDefaultAsync(r => r.LearningMaterialId == id);
+            if (vm.rank == null)
             {
                 return NotFound();
             }
 
-            return View(ranking);
+            return View(vm);
         }
 
         // GET: Rankings/Create
         public IActionResult Create(int id)
         {
             RankingViewModel vm = new RankingViewModel();
-          
+     vm.Levels = _context.Level.Select(i => new SelectListItem
+     {
+         Value = i.Id.ToString(),
+         Text = i.Name
+     }).ToList();
+            vm.Levels.Insert(0, new SelectListItem()
+            {
+                Value = "0",
+                Text = "Please choose one or more levels that you believe this is good for"
+            });
             vm.rank = new Ranking();
             vm.rank.LearningMaterialId = id;
+            vm.SelectedLevelId = _context.RankingLevel.Include(rl => rl.Level).Where(rl => rl.RankingId == vm.rank.Id).Select(rl => rl.LevelId).ToList();
             return View(vm);
         }
 
@@ -71,9 +82,11 @@ namespace ScheduleMusicPractice.Controllers
             {
                
                 var user = await GetCurrentUserAsync();
-            
+                vm.rankingLevel.RankingId = vm.rank.Id;
+                vm.rankingLevel.LevelId = vm.level.Id;
                 vm.rank.UserId = user.Id;
                 _context.Add(vm.rank);
+                _context.Add(vm.rankingLevel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index", "LearningMaterials");
             }
