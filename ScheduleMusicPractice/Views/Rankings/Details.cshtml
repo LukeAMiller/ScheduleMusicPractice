@@ -1,5 +1,9 @@
 ﻿@model ScheduleMusicPractice.Models.ViewModels.RankingViewModel
+@using Microsoft.AspNetCore.Identity
 
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 @{
     ViewData["Title"] = "Details";
 }
@@ -17,19 +21,42 @@
             @Html.DisplayFor(model => model.rank.User.Id)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.learningMaterial)
+            @Html.DisplayNameFor(model => model.rank.learningMaterial)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.learningMaterial.Name)
+            @Html.DisplayFor(model => model.rank.learningMaterial.Name)
         </dd>
-     
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.rank.Rating)
-            </dt>
+        <dt class="col-sm-2">
+           #Beginner Votes
+        </dt>
+
+        <dd class=" col-sm-10">@Html.DisplayFor(model => model.BeginnerCount)</dd>
+        <dt class="col-sm-2">
+            #Intermediate Votes
+        </dt>
+
+        <dd class=" col-sm-10">@Html.DisplayFor(model => model.IntermediateCount)</dd>
+        <dt class="col-sm-2">
+           #Advanced Votes
+        </dt>
+
+        <dd class=" col-sm-10">@Html.DisplayFor(model => model.AdvancedCount)</dd>
+        <dt class="col-sm-2">
+           #Pro Votes
+        </dt>
+
+        <dd class=" col-sm-10">@Html.DisplayFor(model => model.ProCount)</dd>
+        <dt class="col-sm-2">
+            Your Rating
+        </dt>
+
+        @if (Model.rank.UserId == @UserManager.GetUserAsync(User).Result.Id)
+        {
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.rank.Rating)
+                @Html.DisplayFor(modelitem => Model.rank.Rating)
             </dd>
-       
+        }
+
 
     </dl>
 </div>
