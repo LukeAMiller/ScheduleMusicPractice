@@ -16,7 +16,7 @@
                 <label asp-for="learningMaterial" class="control-label"></label>
                 <input asp-for="learningMaterial" class="form-control" />
                 <span asp-validation-for="learningMaterial" class="text-danger"></span>
-            </div> 
+            </div>
             <div hidden class=" form-group">
                 <label asp-for="user" class="control-label"></label>
                 <input asp-for="user" class="form-control" />
@@ -30,9 +30,12 @@
                 <label asp-for="rank.Rating" class="control-label"></label>
                 <input asp-for="rank.Rating" class="form-control" />
                 <span asp-validation-for="rank.Rating" class="text-danger"></span>
+            </div>  <div class="form-group">
+                <label class="control-label">What level play would you recommend to use this?(Hold CRL key to select multiple)</label>
+                <select multiple asp-for="@Model.SelectedLevelId" class="form-control" asp-items="@Model.Levels"></select>
             </div>
             <div class="form-group">
-                <input type="submit"value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
