@@ -4,7 +4,6 @@
     ViewData["Title"] = "View";
 }
 
-<h1>View</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -19,16 +18,16 @@
                 @Html.DisplayNameFor(model => model.Instrument)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PracticeMethod)
+                Method of Practice
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.completed)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MinutesPracticed)
+             Time Spent Practicing(Minutes)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ratethisSession)
+               Session Rating(1-5)
             </th>
             <th></th>
         </tr>
