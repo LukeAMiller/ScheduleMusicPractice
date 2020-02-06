@@ -10,6 +10,5 @@ namespace ScheduleMusicPractice.Models.ViewModels
     {
         public LearningMaterial learningMaterial { get; set; }
         public List<SelectListItem> instruments { get; set; }
-        public List<int> SelectedInstrumentId { get; set; }
     }
 }

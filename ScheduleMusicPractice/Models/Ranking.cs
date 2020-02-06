@@ -14,7 +14,6 @@ namespace ScheduleMusicPractice.Models
         public User User { get; set; }
         public LearningMaterial learningMaterial { get; set; }
         public int LearningMaterialId { get; set; }
-        [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5")]
         public int Rating { get; set; }
     }
 }

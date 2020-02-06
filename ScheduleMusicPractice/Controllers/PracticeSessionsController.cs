@@ -16,6 +16,7 @@ namespace ScheduleMusicPractice.Controllers
     public class PracticeSessionsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        //userManager because i need current user
         private UserManager<User> _userManager;
         public PracticeSessionsController(ApplicationDbContext context, UserManager<User> userManager)
         {
@@ -26,13 +27,16 @@ namespace ScheduleMusicPractice.Controllers
         // GET: PracticeSessions
         public async Task<IActionResult> Index()
         {
+            //a .Where because i need only the current users list of sessions and ordered by Date and time
             var user = await GetCurrentUserAsync();
             var applicationDbContext = _context.PracticeSession.Include(p => p.Instrument).Include(p => p.PracticeMethod).Include(p => p.user).Where(p=> p.UserId == user.Id).OrderBy(item => item.dateTime);
             
             return View(await applicationDbContext.ToListAsync());
         }
+        //View is a list view of sessions in the past, index is sessions in the future
         public async Task<IActionResult> View()
         {
+            //
             var user = await GetCurrentUserAsync();
             var applicationDbContext = _context.PracticeSession.Include(p => p.Instrument).Include(p => p.PracticeMethod).Include(p => p.user).Where(p => p.UserId == user.Id).OrderBy(item => item.dateTime);
 
@@ -62,7 +66,9 @@ namespace ScheduleMusicPractice.Controllers
         // GET: PracticeSessions/Create
         public IActionResult Create()
         {
+            //instance of view model
             ScheduleASession vm = new ScheduleASession();
+            //two select list items for methods and instruments
             vm.ListOfInstruments = _context.Instrument.Select(i => new SelectListItem
             {
                 Value = i.Id.ToString(),
@@ -93,6 +99,7 @@ namespace ScheduleMusicPractice.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ScheduleASession vm)
         {
+            //removing rating from Model state until the session has passed
             ModelState.Remove("practiceSession.ratethisSession");
             ModelState.Remove("PracticeSession.UserId");
             if (ModelState.IsValid)
@@ -107,6 +114,7 @@ namespace ScheduleMusicPractice.Controllers
         }
 
         // GET: PracticeSessions/Edit/5
+        //very similar to create methods
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -217,6 +225,7 @@ namespace ScheduleMusicPractice.Controllers
         {
             return _context.PracticeSession.Any(e => e.Id == id);
         }
+        //a new method for when a session has passed, basically another edit
         public async Task<IActionResult> ReviewIt(int? id)
         {
             if (id == null)

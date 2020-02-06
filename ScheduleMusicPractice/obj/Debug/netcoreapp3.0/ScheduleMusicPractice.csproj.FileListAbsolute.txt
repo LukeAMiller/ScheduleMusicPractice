@@ -27,7 +27,6 @@ C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicP
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\ScheduleMusicPractice.csprojAssemblyReference.cache
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\staticwebassets\ScheduleMusicPractice.StaticWebAssets.Manifest.cache
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\staticwebassets\ScheduleMusicPractice.StaticWebAssets.xml
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\ScheduleMusicPractice.RazorAssemblyInfo.cache
@@ -180,3 +179,4 @@ C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicP
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\Rankings\Index.cshtml.g.cs
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\PracticeSessions\ReviewIt.cshtml.g.cs
 C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\Razor\Views\PracticeSessions\View.cshtml.g.cs
+C:\Users\Newforce40\workspace\Visual Studio\ScheduleMusicPractice\ScheduleMusicPractice\obj\Debug\netcoreapp3.0\ScheduleMusicPractice.csprojAssemblyReference.cache

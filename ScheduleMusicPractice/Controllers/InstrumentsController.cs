@@ -48,6 +48,7 @@ namespace ScheduleMusicPractice.Controllers
         // GET: Instruments/Create
         public IActionResult Create()
         {
+            //new instances of view  model and instrument
             createAndEditAnInstrument vm = new createAndEditAnInstrument();
 
             vm.instrument = new Instrument();
@@ -63,6 +64,7 @@ namespace ScheduleMusicPractice.Controllers
         {
             if (ModelState.IsValid)
             {
+                //getting image file from view model if it exist and converting it into byte for the database
                 if (vm.ImageFile != null)
                 {
                     using (var memoryStream = new MemoryStream())
@@ -77,7 +79,7 @@ namespace ScheduleMusicPractice.Controllers
             }
             return View(vm.instrument);
         }
-
+        //mostly the same as create, will probably go back and get the imagefile to prepopulate with the previously created image
         // GET: Instruments/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -86,12 +88,14 @@ namespace ScheduleMusicPractice.Controllers
                 return NotFound();
             }
             createAndEditAnInstrument editAInstrument = new createAndEditAnInstrument() ;
+            
             var instrument = await _context.Instrument.FindAsync(id);
             if (instrument == null)
             {
                 return NotFound();
             }
             editAInstrument.instrument = instrument;
+            
             return View(editAInstrument);
         }
 

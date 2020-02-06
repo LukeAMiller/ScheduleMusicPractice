@@ -17,9 +17,11 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
+                        
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
@@ -30,11 +32,18 @@
                             </li>
                         }
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="LearningMaterials" asp-action="Index">LearningMaterials</a>
+                            <button class="btn btn-info" type="button"
+                                    onclick="location.href='@Url.Action("Index", "LearningMaterials")'">
+                                Learning Materials
+                            </button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Instruments" asp-action="Index">Instruments</a>
+                            <button class="btn btn-info" type="button"
+                                    onclick="location.href='@Url.Action("Index", "Instruments")'">
+                                Instruments
+                            </button>
                         </li>
+                   
                         @if (SignInManager.IsSignedIn(User))
                         {
 
