@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ScheduleMusicPractice.Data;
 
 namespace ScheduleMusicPractice.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200204145532_seeddataforlevels")]
+    partial class seeddataforlevels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -383,7 +385,7 @@ namespace ScheduleMusicPractice.Data.Migrations
                             PracticeMethodId = 1,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
                             completed = false,
-                            dateTime = new DateTime(2020, 2, 4, 10, 20, 53, 859, DateTimeKind.Local).AddTicks(7019),
+                            dateTime = new DateTime(2020, 2, 4, 9, 55, 31, 788, DateTimeKind.Local).AddTicks(8295),
                             ratethisSession = 0
                         },
                         new
@@ -394,7 +396,7 @@ namespace ScheduleMusicPractice.Data.Migrations
                             PracticeMethodId = 2,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
                             completed = false,
-                            dateTime = new DateTime(2020, 2, 4, 10, 20, 53, 864, DateTimeKind.Local).AddTicks(9186),
+                            dateTime = new DateTime(2020, 2, 4, 9, 55, 31, 794, DateTimeKind.Local).AddTicks(5535),
                             ratethisSession = 0
                         },
                         new
@@ -405,7 +407,7 @@ namespace ScheduleMusicPractice.Data.Migrations
                             PracticeMethodId = 3,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
                             completed = false,
-                            dateTime = new DateTime(2020, 2, 4, 10, 20, 53, 864, DateTimeKind.Local).AddTicks(9301),
+                            dateTime = new DateTime(2020, 2, 4, 9, 55, 31, 794, DateTimeKind.Local).AddTicks(5619),
                             ratethisSession = 0
                         });
                 });
@@ -434,28 +436,6 @@ namespace ScheduleMusicPractice.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Ranking");
-                });
-
-            modelBuilder.Entity("ScheduleMusicPractice.Models.RankingLevel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("LevelId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RankingId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LevelId");
-
-                    b.HasIndex("RankingId");
-
-                    b.ToTable("RankingLevel");
                 });
 
             modelBuilder.Entity("ScheduleMusicPractice.Models.User", b =>
@@ -531,14 +511,14 @@ namespace ScheduleMusicPractice.Data.Migrations
                         {
                             Id = "00000000-ffff-ffff-ffff-ffffffffffff",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7b16fb1c-cd94-47a1-a9d4-d6ff8466d777",
+                            ConcurrencyStamp = "837424ed-97aa-4d2c-bc82-6728d47b46a9",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             FullName = "admin",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEM4lnPlXuAeL6exUhysDh+3BqdfCUv5INavafXsQtyU3TRcPF9MTKNq+NSR1uVpVWw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEqHVx9bRhM7/Cq7/SDqpfRvUww/tTtk07SLe7CtdGHEdybZm4qH5ioVTRZ/jmPfFA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "7f434309-a4d9-48e9-9ebb-8803db794577",
                             TwoFactorEnabled = false,
@@ -636,21 +616,6 @@ namespace ScheduleMusicPractice.Data.Migrations
                     b.HasOne("ScheduleMusicPractice.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ScheduleMusicPractice.Models.RankingLevel", b =>
-                {
-                    b.HasOne("ScheduleMusicPractice.Models.Level", "Level")
-                        .WithMany()
-                        .HasForeignKey("LevelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ScheduleMusicPractice.Models.Ranking", "ranking")
-                        .WithMany()
-                        .HasForeignKey("RankingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

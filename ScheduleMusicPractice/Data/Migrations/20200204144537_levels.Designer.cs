@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ScheduleMusicPractice.Data;
 
 namespace ScheduleMusicPractice.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200204144537_levels")]
+    partial class levels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -252,43 +254,6 @@ namespace ScheduleMusicPractice.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ScheduleMusicPractice.Models.Level", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Level");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Beginner"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Intermediate"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Advanced"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Pro"
-                        });
-                });
-
             modelBuilder.Entity("ScheduleMusicPractice.Models.PracticeMethod", b =>
                 {
                     b.Property<int>("Id")
@@ -383,7 +348,7 @@ namespace ScheduleMusicPractice.Data.Migrations
                             PracticeMethodId = 1,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
                             completed = false,
-                            dateTime = new DateTime(2020, 2, 4, 10, 20, 53, 859, DateTimeKind.Local).AddTicks(7019),
+                            dateTime = new DateTime(2020, 2, 4, 9, 45, 37, 110, DateTimeKind.Local).AddTicks(2901),
                             ratethisSession = 0
                         },
                         new
@@ -394,7 +359,7 @@ namespace ScheduleMusicPractice.Data.Migrations
                             PracticeMethodId = 2,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
                             completed = false,
-                            dateTime = new DateTime(2020, 2, 4, 10, 20, 53, 864, DateTimeKind.Local).AddTicks(9186),
+                            dateTime = new DateTime(2020, 2, 4, 9, 45, 37, 113, DateTimeKind.Local).AddTicks(9197),
                             ratethisSession = 0
                         },
                         new
@@ -405,7 +370,7 @@ namespace ScheduleMusicPractice.Data.Migrations
                             PracticeMethodId = 3,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
                             completed = false,
-                            dateTime = new DateTime(2020, 2, 4, 10, 20, 53, 864, DateTimeKind.Local).AddTicks(9301),
+                            dateTime = new DateTime(2020, 2, 4, 9, 45, 37, 113, DateTimeKind.Local).AddTicks(9262),
                             ratethisSession = 0
                         });
                 });
@@ -434,28 +399,6 @@ namespace ScheduleMusicPractice.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Ranking");
-                });
-
-            modelBuilder.Entity("ScheduleMusicPractice.Models.RankingLevel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("LevelId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RankingId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LevelId");
-
-                    b.HasIndex("RankingId");
-
-                    b.ToTable("RankingLevel");
                 });
 
             modelBuilder.Entity("ScheduleMusicPractice.Models.User", b =>
@@ -531,14 +474,14 @@ namespace ScheduleMusicPractice.Data.Migrations
                         {
                             Id = "00000000-ffff-ffff-ffff-ffffffffffff",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7b16fb1c-cd94-47a1-a9d4-d6ff8466d777",
+                            ConcurrencyStamp = "461c88aa-68f4-4c75-9d2a-2be856533228",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             FullName = "admin",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEM4lnPlXuAeL6exUhysDh+3BqdfCUv5INavafXsQtyU3TRcPF9MTKNq+NSR1uVpVWw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMz9Wz3zMxPBvkKvbyW7Ajh1LCjXIXkYHvWpD8V5pIHNiTWpSbAKbVWYJuwypkCY+g==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "7f434309-a4d9-48e9-9ebb-8803db794577",
                             TwoFactorEnabled = false,
@@ -636,21 +579,6 @@ namespace ScheduleMusicPractice.Data.Migrations
                     b.HasOne("ScheduleMusicPractice.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ScheduleMusicPractice.Models.RankingLevel", b =>
-                {
-                    b.HasOne("ScheduleMusicPractice.Models.Level", "Level")
-                        .WithMany()
-                        .HasForeignKey("LevelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ScheduleMusicPractice.Models.Ranking", "ranking")
-                        .WithMany()
-                        .HasForeignKey("RankingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

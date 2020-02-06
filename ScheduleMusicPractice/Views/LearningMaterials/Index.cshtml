@@ -21,7 +21,7 @@
                 @Html.DisplayNameFor(model => model.instrument)
             </th>
             <th>Learning Link</th>
-            <th>User Ratings 1-5</th>
+            <th>Your Rating </th>
             <th>Average Rating</th>
             <th></th>
         </tr>
@@ -39,7 +39,8 @@
                 <a href=@item.Name>@item.Name</a>
 
             </td>
-          
+
+
             <td>
                 @foreach (var rank in item.rankings)
                 {
@@ -68,17 +69,22 @@
                         <td>
                             <a asp-controller="Rankings" asp-action="Edit" asp-route-id="@rank.Id">Change Your Rating</a>
                         </td>
-   }
+                    }
             }
 
             }
             else
-            {<td></td>
+            {
+                <td></td>
                 <td>
 
-                    <a asp-controller="Rankings" asp-action="Create" asp-route-id="@item.id">Rate This Website</a>
+                    <a asp-controller="Rankings" asp-action="Create" asp-route-id="@item.id">Rate this Learning Material</a>
                 </td>
             }
+            <td>
+
+                <a asp-controller="Rankings" asp-action="Details" asp-route-id="@item.id">Details</a>
+            </td>
         </tr>
         }
     </tbody>

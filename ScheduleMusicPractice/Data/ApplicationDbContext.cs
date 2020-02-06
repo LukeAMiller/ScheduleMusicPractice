@@ -20,6 +20,8 @@ namespace ScheduleMusicPractice.Data
         public DbSet<Instrument> Instrument { get; set; }
         public DbSet<PracticeSession> PracticeSession { get; set; }
         public DbSet<PracticeMethod> PracticeMethod { get; set; }
+        public DbSet<RankingLevel> RankingLevel { get; set; }
+        public DbSet<Level> Level { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -59,6 +61,28 @@ namespace ScheduleMusicPractice.Data
                      Name = "http://www.yousician.com",
                      InstrumentId = 2
                  });
+            modelBuilder.Entity<Level>().HasData(
+          new Level()
+          {
+              Id = 1,
+              Name = "Beginner"
+          },
+            new Level()
+            {
+                Id = 2,
+                Name = "Intermediate"
+            },
+              new Level()
+              {
+                  Id = 3,
+                  Name = "Advanced"
+              },
+               new Level()
+               {
+                   Id = 4,
+                   Name = "Pro"
+               }
+              );
             modelBuilder.Entity<Instrument>().HasData(
             new Instrument()
             {

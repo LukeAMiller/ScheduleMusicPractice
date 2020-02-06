@@ -101,7 +101,7 @@ namespace ScheduleMusicPractice.Controllers
                 vm.practiceSession.UserId = user.Id;
                 _context.Add(vm.practiceSession);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Details), new { id = vm.practiceSession.Id.ToString() });
+                return RedirectToAction(nameof(Index), new { id = vm.practiceSession.Id.ToString() });
             }
          return View(vm);
         }
