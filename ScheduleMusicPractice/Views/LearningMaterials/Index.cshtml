@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<ScheduleMusicPractice.Models.LearningMaterial>
 @using Microsoft.AspNetCore.Identity
-
+@* have to have UserManager for verifying identity *@
 
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
@@ -42,6 +42,7 @@
 
 
             <td>
+                @* foreach again for the current users rating and verifying user with if statement *@
                 @foreach (var rank in item.rankings)
                 {
                     @if (rank.UserId == @UserManager.GetUserAsync(User).Result.Id)
@@ -52,16 +53,18 @@
 
                 }
             </td>
+            @* very similar the the previous statements but to display the Average Rating(i called it Sum)xD *@
 
-            @foreach (var rank in item.rankings)
-            {@if (rank.UserId == @UserManager.GetUserAsync(User).Result.Id)
-                {
-                    <td>@item.Sum()</td>
-                }
-        }
+            @if (item.rankings.Any())
+            {
+                <td>@item.Sum()</td>
+            }
 
+            @* verifying if there are any rankings that the user has made for the link and displaying an edit button for the ranking or displaying a create rating button also an extra td to make it in the correct column *@
             @if (item.rankings.Any(r => r.UserId == @UserManager.GetUserAsync(User).Result.Id))
             {
+
+
 
                 @foreach (var rank in item.rankings)
                 {@if (rank.UserId == @UserManager.GetUserAsync(User).Result.Id)
@@ -75,16 +78,21 @@
             }
             else
             {
-                <td></td>
+                
                 <td>
 
                     <a asp-controller="Rankings" asp-action="Create" asp-route-id="@item.id">Rate this Learning Material</a>
                 </td>
             }
-            <td>
-
-                <a asp-controller="Rankings" asp-action="Details" asp-route-id="@item.id">Details</a>
-            </td>
+            @* verifying if there are ratings for the rank and displaying a details button if so *@
+    
+            @if (item.rankings.Any())
+                {
+                    <td>
+                        <a asp-controller="Rankings" asp-action="Details" asp-route-id="@item.id">Ratings</a>
+                    </td>
+                }
+        
         </tr>
         }
     </tbody>

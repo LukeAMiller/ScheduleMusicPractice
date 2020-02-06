@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+//identity for the current user
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -52,7 +53,9 @@ namespace ScheduleMusicPractice.Controllers
         // GET: LearningMaterials/Create
         public IActionResult Create()
         {
+            //instance of a view model
             LearningMaterialViewModel vm = new LearningMaterialViewModel();
+            //Select List for instruments
             vm.instruments = _context.Instrument.Select(c => new SelectListItem
             {
                 Value = c.Id.ToString(),
@@ -77,11 +80,11 @@ namespace ScheduleMusicPractice.Controllers
         {
             if (ModelState.IsValid)
             {
+                //adding the learning material from the view model to database
                 _context.Add(vm.learningMaterial);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["InstrumentId"] = new SelectList(_context.Instrument, "Id", "Id", vm.learningMaterial.instrument.Name);
             return View(vm.learningMaterial);
         }
 
@@ -118,6 +121,7 @@ namespace ScheduleMusicPractice.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        //edit function, not easily accessible for the user, it's for the programmer
         public async Task<IActionResult> Edit(int id, LearningMaterialViewModel vm)
         {
             if (id != vm.learningMaterial.id)

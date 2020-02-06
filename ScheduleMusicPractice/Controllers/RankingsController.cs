@@ -12,8 +12,10 @@ using ScheduleMusicPractice.Models.ViewModels;
 
 namespace ScheduleMusicPractice.Controllers
 {
+    
     public class RankingsController : Controller
     {
+        //userManager to get current user and his/her Id
         private readonly ApplicationDbContext _context;
         private UserManager<User> _userManager;
         public RankingsController(ApplicationDbContext context, UserManager<User> userManager)
@@ -36,23 +38,33 @@ namespace ScheduleMusicPractice.Controllers
             {
                 return NotFound();
             }
+            //creating new instance of a view model to present Count of upvotes in each category and current user's Rating
             RankingViewModel vm = new RankingViewModel();
             var user = await GetCurrentUserAsync();
             vm.rank = await _context.Ranking
                 .Include(r => r.User).Where(r => r.User == user)
                 .Include(r => r.learningMaterial).Include(r => r.learningMaterial.instrument).Include(r => r.learningMaterial.rankings)
                 .FirstOrDefaultAsync(r => r.LearningMaterialId == id);
-            
+            //where the learning materials id of the ranking equals the give id parameter
             vm.user = user;
-            vm.rankingLevel = await _context.RankingLevel.FirstOrDefaultAsync(r => r.RankingId == vm.rank.Id);
-            var beginner = await _context.RankingLevel.Where(rl => rl.LevelId == 1 && rl.ranking.LearningMaterialId == vm.rank.LearningMaterialId).ToListAsync();
+            //getting the correct information for the view model to have when it is presented to the user if the rank exists
+            if (vm.rank != null)
+            {
+                vm.rankingLevel = await _context.RankingLevel.FirstOrDefaultAsync(r => r.RankingId == vm.rank.Id);
+
+                //first i get the entries in the join table that have Correct LevelId and the ranking from join table has correct LM id and turn it into a list
+
+                var beginner = await _context.RankingLevel.Where(rl => rl.LevelId == 1 && rl.ranking.LearningMaterialId == vm.rank.LearningMaterialId).ToListAsync();
+                //then i get the count of the list i created and put it in the view model
                 vm.BeginnerCount = beginner.Count();
-            var intermediate = await _context.RankingLevel.Where(rl => rl.LevelId == 2 && rl.ranking.LearningMaterialId == vm.rank.LearningMaterialId).ToListAsync();
-            vm.IntermediateCount = intermediate.Count();
-            var advanced = await _context.RankingLevel.Where(rl => rl.LevelId == 3 && rl.ranking.LearningMaterialId == vm.rank.LearningMaterialId).ToListAsync();
-            vm.AdvancedCount = advanced.Count();
-            var Pro = await _context.RankingLevel.Where(rl => rl.LevelId == 4 && rl.ranking.LearningMaterialId == vm.rank.LearningMaterialId).ToListAsync();
-            vm.ProCount = Pro.Count();
+                //i rinse and repeat this process for each category
+                var intermediate = await _context.RankingLevel.Where(rl => rl.LevelId == 2 && rl.ranking.LearningMaterialId == vm.rank.LearningMaterialId).ToListAsync();
+                vm.IntermediateCount = intermediate.Count();
+                var advanced = await _context.RankingLevel.Where(rl => rl.LevelId == 3 && rl.ranking.LearningMaterialId == vm.rank.LearningMaterialId).ToListAsync();
+                vm.AdvancedCount = advanced.Count();
+                var Pro = await _context.RankingLevel.Where(rl => rl.LevelId == 4 && rl.ranking.LearningMaterialId == vm.rank.LearningMaterialId).ToListAsync();
+                vm.ProCount = Pro.Count();
+            }
             if (vm.rank == null)
             {
                 return NotFound();
@@ -64,19 +76,19 @@ namespace ScheduleMusicPractice.Controllers
         // GET: Rankings/Create
         public IActionResult Create(int id)
         {
+            //new instance of view model
             RankingViewModel vm = new RankingViewModel();
+            // select list for each level 
      vm.Levels = _context.Level.Select(i => new SelectListItem
      {
          Value = i.Id.ToString(),
          Text = i.Name
      }).ToList();
-            vm.Levels.Insert(0, new SelectListItem()
-            {
-                Value = "0",
-                Text = "Please choose one or more levels that you believe this is good for"
-            });
+            //a new instance of rank
             vm.rank = new Ranking();
+            //setting the LM id to Param
             vm.rank.LearningMaterialId = id;
+            //selected multiselect list
             vm.SelectedLevelId = _context.RankingLevel.Include(rl => rl.Level).Where(rl => rl.RankingId == vm.rank.Id).Select(rl => rl.LevelId).ToList();
             return View(vm);
         }
@@ -88,22 +100,28 @@ namespace ScheduleMusicPractice.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(int id, RankingViewModel vm)
         {
+            //removing userid from state to make modelstate valid
             ModelState.Remove("Rank.UserId");
             if (ModelState.IsValid)
             {
-               
+               //setting user and user id to current user
                 var user = await GetCurrentUserAsync();
                 vm.rank.UserId = user.Id;
+                // a new ranking level instance in view model
                 vm.rankingLevel = new RankingLevel();
                 _context.Add(vm.rank);
 
                 await _context.SaveChangesAsync();
-                foreach (var rl in vm.SelectedLevelId)
+                //if the user selected one or more levels for learning materials add one or more ranking levels to database join table
+                if (vm.SelectedLevelId != null)
                 {
-                    var newRankingLevel = new RankingLevel();
-                    newRankingLevel.RankingId = vm.rank.Id;
-                    newRankingLevel.LevelId = rl;
-                          _context.Add(newRankingLevel);
+                    foreach (var rl in vm.SelectedLevelId)
+                    {
+                        var newRankingLevel = new RankingLevel();
+                        newRankingLevel.RankingId = vm.rank.Id;
+                        newRankingLevel.LevelId = rl;
+                        _context.Add(newRankingLevel);
+                    }
                 }
                
                 await _context.SaveChangesAsync();
@@ -116,6 +134,7 @@ namespace ScheduleMusicPractice.Controllers
       
 
         // GET: Rankings/Edit/5
+        //basically the same code as create
         public async Task<IActionResult> Edit(int id)
         {
             if (id == 0)
@@ -128,11 +147,7 @@ namespace ScheduleMusicPractice.Controllers
                 Value = i.Id.ToString(),
                 Text = i.Name
             }).ToList();
-            vm.Levels.Insert(0, new SelectListItem()
-            {
-                Value = "0",
-                Text = "Please choose one or more levels that you believe this is good for"
-            });
+      
             vm.rank = new Ranking();
             vm.rank.LearningMaterialId = id;
             vm.SelectedLevelId = _context.RankingLevel.Include(rl => rl.Level).Where(rl => rl.RankingId == vm.rank.Id).Select(rl => rl.LevelId).ToList();
@@ -151,6 +166,7 @@ namespace ScheduleMusicPractice.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, RankingViewModel vm)
         {
+//makes sure that the rank exists
             if (id != vm.rank.Id)
             {
                 return NotFound();
@@ -165,13 +181,18 @@ namespace ScheduleMusicPractice.Controllers
                     vm.rank.UserId = user.Id;
                     _context.Update(vm.rank);
                     await _context.SaveChangesAsync();
-                    foreach (var rl in vm.SelectedLevelId)
+
+                    if (vm.SelectedLevelId != null)
                     {
-                        var newRankingLevel = new RankingLevel();
-                        newRankingLevel.RankingId = vm.rank.Id;
-                        newRankingLevel.LevelId = rl;
-                        _context.Update(newRankingLevel);
+                        foreach (var rl in vm.SelectedLevelId)
+                        {
+                            var newRankingLevel = new RankingLevel();
+                            newRankingLevel.RankingId = vm.rank.Id;
+                            newRankingLevel.LevelId = rl;
+                            _context.Update(newRankingLevel);
+                        }
                     }
+                   
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

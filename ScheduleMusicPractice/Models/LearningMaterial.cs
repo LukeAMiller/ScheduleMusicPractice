@@ -10,6 +10,7 @@ namespace ScheduleMusicPractice.Models
     public class LearningMaterial
     {
         public int id { get; set; }
+        //telling C# that this is a URL
         [DataType(DataType.Url)]
         [UIHint("OpenInNewWindow")]
         public string Name { get; set; }
