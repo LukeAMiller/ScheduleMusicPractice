@@ -36,7 +36,7 @@
 @foreach (var item in Model) {
     if (item.dateTime! < DateTime.Now)
     {
-        <tr>
+        <tr class= @(item.completed ? "bg-success" : "bg-danger") >
           
             <td>
                 @Html.DisplayFor(modelItem => item.dateTime)
