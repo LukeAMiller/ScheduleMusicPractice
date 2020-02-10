@@ -49,13 +49,13 @@
         <dt class="col-sm-2">
             Your Rating
         </dt>
-
-        @if (Model.rank.UserId == @UserManager.GetUserAsync(User).Result.Id)
+     
+        @if (Model.rank != null)
         {
             <dd class="col-sm-10">
                 @Html.DisplayFor(modelitem => Model.rank.Rating)
             </dd>
-        }
+            } 
 
 
     </dl>

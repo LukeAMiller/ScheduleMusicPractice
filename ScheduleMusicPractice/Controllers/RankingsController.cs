@@ -65,10 +65,7 @@ namespace ScheduleMusicPractice.Controllers
                 var Pro = await _context.RankingLevel.Where(rl => rl.LevelId == 4 && rl.ranking.LearningMaterialId == vm.rank.LearningMaterialId).ToListAsync();
                 vm.ProCount = Pro.Count();
             }
-            if (vm.rank == null)
-            {
-                return NotFound();
-            }
+       
 
             return View(vm);
         }
