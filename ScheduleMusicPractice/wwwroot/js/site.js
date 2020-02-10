@@ -4,4 +4,3 @@
 // Write your JavaScript code.
 
 
-document.querySelector("#DarkMode").addEventListener("click", () => document.body.classList.toggle(".darkmode"))

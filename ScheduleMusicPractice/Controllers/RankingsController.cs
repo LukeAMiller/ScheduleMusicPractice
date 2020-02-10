@@ -42,7 +42,7 @@ namespace ScheduleMusicPractice.Controllers
             RankingViewModel vm = new RankingViewModel();
             var user = await GetCurrentUserAsync();
             vm.rank = await _context.Ranking
-                .Include(r => r.User).Where(r => r.User == user)
+                .Include(r => r.User)
                 .Include(r => r.learningMaterial).Include(r => r.learningMaterial.instrument).Include(r => r.learningMaterial.rankings)
                 .FirstOrDefaultAsync(r => r.LearningMaterialId == id);
             //where the learning materials id of the ranking equals the give id parameter
