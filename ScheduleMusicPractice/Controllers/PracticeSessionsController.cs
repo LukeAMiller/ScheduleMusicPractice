@@ -162,6 +162,7 @@ namespace ScheduleMusicPractice.Controllers
             {
                 return NotFound();
             }
+            ModelState.Remove("PracticeSession.ratethisSession");
             ModelState.Remove("PracticeSession.UserId");
             if (ModelState.IsValid)
             {
